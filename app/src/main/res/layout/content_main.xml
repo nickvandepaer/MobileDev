@@ -29,7 +29,7 @@
                 android:id="@+id/welkomLbl"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Welkomnick"
+                android:text="Welkom"
                 android:textSize="25sp"
 
                 />
