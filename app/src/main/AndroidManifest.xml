@@ -42,6 +42,10 @@
         <activity
             android:name=".ZegHetZelfEensActivity"
             android:label="@string/title_activity_zeg_het_zelf_eens"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".SpelletjesActivity"
+            android:label="@string/title_activity_spelletjes"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

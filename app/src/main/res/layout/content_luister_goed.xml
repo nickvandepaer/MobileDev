@@ -8,4 +8,53 @@
     tools:context=".LuisterGoedActivity"
     tools:showIn="@layout/activity_luister_goed">
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
+
+        <RelativeLayout
+            android:id="@+id/luister_goed"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="75dp"
+            >
+            <ImageView
+                android:id="@+id/oorImg"
+                android:layout_marginLeft="5dp"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:src="@mipmap/oor"
+                android:textSize="25sp"
+                android:layout_gravity="center_horizontal"
+                />
+            <Button
+                android:id="@+id/nogEensBtn"
+                android:layout_marginLeft="5dp"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="nog eens"
+                android:textSize="25sp"
+                android:layout_below="@id/oorImg"
+                />
+            <Button
+                android:id="@+id/volgendBtn"
+                android:layout_marginLeft="5dp"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="volgend"
+                android:textSize="25sp"
+                android:layout_below="@id/oorImg"
+                android:layout_toRightOf="@id/nogEensBtn"
+                />
+
+        </RelativeLayout>
+    </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>

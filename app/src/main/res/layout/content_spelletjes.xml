@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".MainActivity"
-    tools:showIn="@layout/activity_main">
+    tools:context=".SpelletjesActivity"
+    tools:showIn="@layout/activity_spelletjes">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -18,31 +18,31 @@
         app:layout_constraintTop_toTopOf="parent" >
 
         <RelativeLayout
-            android:id="@+id/luister_goed"
+            android:id="@+id/spelletjes"
             android:orientation="horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="75dp"
             >
-            <ImageView
-                android:id="@+id/oorImg"
+            <Button
+                android:id="@+id/luistGoed"
                 android:layout_marginLeft="5dp"
                 android:layout_width="300dp"
-                android:layout_height="300dp"
-                android:src="@mipmap/oor"
+                android:layout_height="wrap_content"
+                android:text="Luister goed"
                 android:textSize="25sp"
                 android:layout_gravity="center_horizontal"
                 />
             <Button
-                android:id="@+id/startLuisterGoedBtn"
+                android:id="@+id/zegHetEensZelf"
                 android:layout_marginLeft="5dp"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:text="Start"
+                android:text="Zeg het eens zelf"
                 android:textSize="25sp"
                 android:layout_gravity="center_horizontal"
-                android:layout_below="@id/oorImg"
+                android:layout_below="@id/luistGoed"
                 />
         </RelativeLayout>
     </LinearLayout>
