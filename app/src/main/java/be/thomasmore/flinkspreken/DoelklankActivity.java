@@ -101,5 +101,13 @@ public class DoelklankActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    @Override
+    public void onStart()
+    {
+        super.onStart();
+        Bundle bundle = getIntent().getExtras();
+        frontingStopping = bundle.getString("FrontingStoppingKeuze");
+        finaalInitiaal = bundle.getString("FinaalInitiaalKeuze");
+    }
 
 }

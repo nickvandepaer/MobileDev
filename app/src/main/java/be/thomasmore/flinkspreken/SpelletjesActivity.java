@@ -7,6 +7,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 public class SpelletjesActivity extends AppCompatActivity {
@@ -22,28 +23,31 @@ public class SpelletjesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_spelletjes);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+    }
 
+    public void LuisterGoed_onClick(View v) {
+        Button btn = (Button) v;
+        Bundle bundle = getIntent().getExtras();
+        Intent intent = new Intent(this, LuisterGoedActivity.class);
+        intent.putExtras(bundle);
+        startActivity(intent);
+    }
+
+    public void ZegHetEensZelf_onClick(View v) {
+        Button btn = (Button) v;
+        Bundle bundle = getIntent().getExtras();
+        Intent intent = new Intent(this, ZegHetZelfEensActivity.class);
+        intent.putExtras(bundle);
+        startActivity(intent);
+    }
+
+    @Override
+    public void onStart()
+    {
+        super.onStart();
         Bundle bundle = getIntent().getExtras();
         frontingStopping = bundle.getString("FrontingStoppingKeuze");
         finaalInitiaal = bundle.getString("FinaalInitiaalKeuze");
         doelKlank = bundle.getString("Doelklank");
-
-        toon(frontingStopping);
-        toon(finaalInitiaal);
-        toon(doelKlank);
-
-    }
-
-    public void LuisterGoed_onClick(View v) {
-
-    }
-
-    public void ZegHetEensZelf_onClick(View v) {
-
-    }
-
-    private void toon(String tekst)
-    {
-        Toast.makeText(getBaseContext(), tekst, Toast.LENGTH_SHORT).show();
     }
 }

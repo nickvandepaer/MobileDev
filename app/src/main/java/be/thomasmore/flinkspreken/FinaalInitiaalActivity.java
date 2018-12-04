@@ -18,17 +18,6 @@ public class FinaalInitiaalActivity extends AppCompatActivity {
         setContentView(R.layout.activity_finaal_initiaal);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-
-
-
-
-        toon(frontingStopping);
-    }
-
-    private void toon(String tekst)
-    {
-        Toast.makeText(getBaseContext(), tekst, Toast.LENGTH_SHORT).show();
     }
 
     public void Finaal_onClick(View v) {

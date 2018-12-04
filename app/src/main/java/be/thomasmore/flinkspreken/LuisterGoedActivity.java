@@ -6,8 +6,13 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Toast;
 
 public class LuisterGoedActivity extends AppCompatActivity {
+
+    String frontingStopping;
+    String finaalInitiaal;
+    String doelKlank;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,6 +21,25 @@ public class LuisterGoedActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+    }
+
+    @Override
+    public void onStart()
+    {
+        super.onStart();
+        Bundle bundle = getIntent().getExtras();
+        frontingStopping = bundle.getString("FrontingStoppingKeuze");
+        finaalInitiaal = bundle.getString("FinaalInitiaalKeuze");
+        doelKlank = bundle.getString("Doelklank");
+
+        toon(frontingStopping);
+        toon(finaalInitiaal);
+        toon(doelKlank);
+    }
+
+    private void toon(String tekst)
+    {
+        Toast.makeText(getBaseContext(), tekst, Toast.LENGTH_SHORT).show();
     }
 
 }
