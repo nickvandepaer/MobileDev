@@ -7,4 +7,5 @@
     <string name="title_activity_minimale_paar">MinimalePaarActivity</string>
     <string name="title_activity_luister_goed">LuisterGoedActivity</string>
     <string name="title_activity_zeg_het_zelf_eens">ZegHetZelfEensActivity</string>
+    <string name="title_activity_spelletjes">SpelletjesActivity</string>
 </resources>
