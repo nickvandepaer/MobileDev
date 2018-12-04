@@ -33,6 +33,7 @@
                 android:text="Luister goed"
                 android:textSize="25sp"
                 android:layout_gravity="center_horizontal"
+                android:onClick="LuisterGoed_onClick"
                 />
             <Button
                 android:id="@+id/zegHetEensZelf"
@@ -43,6 +44,7 @@
                 android:textSize="25sp"
                 android:layout_gravity="center_horizontal"
                 android:layout_below="@id/luistGoed"
+                android:onClick="ZegHetEensZelf_onClick"
                 />
         </RelativeLayout>
     </LinearLayout>

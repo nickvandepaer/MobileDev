@@ -40,19 +40,9 @@ public class DoelklankActivity extends AppCompatActivity {
         frontingStopping = bundle.getString("FrontingStoppingKeuze");
         finaalInitiaal = bundle.getString("FinaalInitiaalKeuze");
 
-        toon(frontingStopping);
-        toon(finaalInitiaal);
-
         maakLayout();
     }
 
-
-
-
-    private void toon(String tekst)
-    {
-        Toast.makeText(getBaseContext(), tekst, Toast.LENGTH_SHORT).show();
-    }
 
     private void maakLayout()
     {
@@ -92,7 +82,7 @@ public class DoelklankActivity extends AppCompatActivity {
                 btn.setText(keuzeArray[k]);
                 btn.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
-                        btnClick((Button)v);
+                        btnClick((View)v);
                     }
                 });
                 k++;
@@ -101,15 +91,15 @@ public class DoelklankActivity extends AppCompatActivity {
         }
     }
 
-    private void btnClick(Button button)
+    private void btnClick(View v)
     {
-        String naam = button.getTag().toString();
-
-        //Bundle bundle = new Bundle();
-        //bundle.putString("naam", naam);
-        //Intent intent = new Intent(this, SecondActivity.class);
-        //intent.putExtras(bundle);
-        //startActivity(intent);
-
+        Button btn = (Button) v;
+        Bundle bundle = getIntent().getExtras();
+        bundle.putString("Doelklank", btn.getText().toString());
+        Intent intent = new Intent(this, SpelletjesActivity.class);
+        intent.putExtras(bundle);
+        startActivity(intent);
     }
+
+
 }
