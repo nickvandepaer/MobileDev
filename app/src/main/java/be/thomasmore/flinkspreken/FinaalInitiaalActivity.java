@@ -29,8 +29,7 @@ public class FinaalInitiaalActivity extends AppCompatActivity {
         });
 
 
-        Bundle bundle = getIntent().getExtras();
-        frontingStopping = bundle.getString("FrontingStoppingKeuze");
+
         toon(frontingStopping);
     }
 
@@ -55,5 +54,13 @@ public class FinaalInitiaalActivity extends AppCompatActivity {
         Intent intent = new Intent(this, DoelklankActivity.class);
         intent.putExtras(bundle);
         startActivityForResult(intent, 1);  // 1 is requestCode
+    }
+
+    @Override
+    public void onStart()
+    {
+        super.onStart();
+        Bundle bundle = getIntent().getExtras();
+        frontingStopping = bundle.getString("FrontingStoppingKeuze");
     }
 }

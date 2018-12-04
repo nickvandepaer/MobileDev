@@ -8,4 +8,16 @@
     tools:context=".DoelklankActivity"
     tools:showIn="@layout/activity_doelklank">
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:id="@+id/layout_doelKlank"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
+
+    </LinearLayout>
 </android.support.constraint.ConstraintLayout>
