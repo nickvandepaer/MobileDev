@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".FinaalInitiaalActivity"
+    tools:showIn="@layout/activity_finaal_initiaal">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
+
+        <RelativeLayout
+            android:id="@+id/Finaal_Initiaal"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="75dp"
+            >
+            <Button
+                android:id="@+id/finaalBtn"
+                android:layout_marginLeft="5dp"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="Finaal"
+                android:textSize="25sp"
+                android:layout_gravity="center_horizontal"
+                android:onClick="Finaal_onClick"
+                />
+            <Button
+                android:id="@+id/initiaalBtn"
+                android:layout_marginLeft="5dp"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="Initiaal"
+                android:textSize="25sp"
+                android:layout_gravity="center_horizontal"
+                android:layout_below="@id/finaalBtn"
+                android:onClick="Initiaal_onClick"
+                />
+        </RelativeLayout>
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>
