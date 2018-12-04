@@ -34,14 +34,14 @@
 
                 />
             <Button
-                android:id="@+id/StartBtn"
-                android:layout_marginLeft="5dp"
+                android:id="@+id/start"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="15sp"
                 android:text="Start"
-                android:textSize="25sp"
-                android:layout_gravity="center_horizontal"
-                android:layout_below="@id/welkomLbl"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:onClick="Start_onClick"
                 />
         </RelativeLayout>
     </LinearLayout>

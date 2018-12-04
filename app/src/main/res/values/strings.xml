@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">FlinkSpreken</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_fronting_stopping">FrontingStoppingActivity</string>
+    <string name="title_activity_finaal_initiaal">FinaalInitiaalActivity</string>
+    <string name="title_activity_doelklank">DoelklankActivity</string>
+    <string name="title_activity_minimale_paar">MinimalePaarActivity</string>
+    <string name="title_activity_luister_goed">LuisterGoedActivity</string>
+    <string name="title_activity_zeg_het_zelf_eens">ZegHetZelfEensActivity</string>
 </resources>

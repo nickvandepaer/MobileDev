@@ -19,6 +19,30 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".FrontingStoppingActivity"
+            android:label="@string/title_activity_fronting_stopping"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".FinaalInitiaalActivity"
+            android:label="@string/title_activity_finaal_initiaal"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".DoelklankActivity"
+            android:label="@string/title_activity_doelklank"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MinimalePaarActivity"
+            android:label="@string/title_activity_minimale_paar"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".LuisterGoedActivity"
+            android:label="@string/title_activity_luister_goed"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ZegHetZelfEensActivity"
+            android:label="@string/title_activity_zeg_het_zelf_eens"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
