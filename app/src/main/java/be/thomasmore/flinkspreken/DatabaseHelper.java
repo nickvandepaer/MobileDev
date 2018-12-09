@@ -121,7 +121,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public List<MinimalePaar> getMinimaleParen() {
         List<MinimalePaar> lijst = new ArrayList<MinimalePaar>();
 
-        String selectQuery = "SELECT  * FROM minimaleParen";
+        String selectQuery = "SELECT  * FROM minimalePaar";
 
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);

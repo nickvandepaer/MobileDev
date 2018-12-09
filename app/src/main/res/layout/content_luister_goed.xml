@@ -25,6 +25,17 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="75dp"
             >
+
+            <Button
+                android:id="@+id/luidspreker"
+                android:layout_marginLeft="5dp"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="luidspreker"
+                android:textSize="25sp"
+                android:layout_alignParentTop="true"
+                android:onClick="Luidspreker_onClick"
+                />
             <ImageView
                 android:id="@+id/oorImg"
                 android:layout_marginLeft="5dp"
@@ -35,23 +46,14 @@
                 android:layout_gravity="center_horizontal"
                 />
             <Button
-                android:id="@+id/nogEensBtn"
+                android:id="@+id/start"
                 android:layout_marginLeft="5dp"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:text="nog eens"
+                android:text="Start"
                 android:textSize="25sp"
                 android:layout_below="@id/oorImg"
-                />
-            <Button
-                android:id="@+id/volgendBtn"
-                android:layout_marginLeft="5dp"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:text="volgend"
-                android:textSize="25sp"
-                android:layout_below="@id/oorImg"
-                android:layout_toRightOf="@id/nogEensBtn"
+                android:onClick="Start_onClick"
                 />
 
         </RelativeLayout>

@@ -16,6 +16,7 @@ public class SpelletjesActivity extends AppCompatActivity {
     String frontingStopping;
     String finaalInitiaal;
     String doelKlank;
+    String minimalePaar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,5 +50,11 @@ public class SpelletjesActivity extends AppCompatActivity {
         frontingStopping = bundle.getString("FrontingStoppingKeuze");
         finaalInitiaal = bundle.getString("FinaalInitiaalKeuze");
         doelKlank = bundle.getString("Doelklank");
+        minimalePaar = bundle.getString("MinimalePaar");
+    }
+
+    private void toon(String tekst)
+    {
+        Toast.makeText(getBaseContext(), tekst, Toast.LENGTH_SHORT).show();
     }
 }
