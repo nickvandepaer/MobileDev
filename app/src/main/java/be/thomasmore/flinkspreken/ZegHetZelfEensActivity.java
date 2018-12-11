@@ -88,7 +88,7 @@ public class ZegHetZelfEensActivity extends AppCompatActivity {
                 imageLayoutParams.leftMargin = 5;
                 imageLayoutParams.topMargin = 5;
                 imageView.setLayoutParams(imageLayoutParams);
-                imageView.setTag("oor");
+                imageView.setTag("ear");
 
                 imageView.setOnClickListener(new View.OnClickListener() {
                     public  void onClick(View v)
@@ -96,7 +96,7 @@ public class ZegHetZelfEensActivity extends AppCompatActivity {
                         imageOnClick((ImageView)v);
                     }
                 });
-                imageView.setImageResource(getResources().getIdentifier("oor","drawable",getPackageName()));
+                imageView.setImageResource(getResources().getIdentifier("ear","drawable",getPackageName()));
 
                // logos[k] = imageView;
                 k++;

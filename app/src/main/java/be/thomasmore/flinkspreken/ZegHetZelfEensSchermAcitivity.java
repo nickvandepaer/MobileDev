@@ -55,19 +55,31 @@ public class ZegHetZelfEensSchermAcitivity extends AppCompatActivity {
 
         Random rand = new Random();
 
-        int random = rand.nextInt(10) + 1;
+        int random = rand.nextInt(100) + 1;
 
-        if(random > 5)
+        if(random > 50)
         {
-            displayWoord = splitted[0];
+            displayWoord = splitted[0].trim().toLowerCase();
+            toon(splitted[0]);
         }
         else
         {
-            displayWoord = splitted[1];
+            displayWoord = splitted[1].trim().toLowerCase();
+            toon(splitted[1]);
         }
 
         TextView textView = (TextView) findViewById(R.id.woord);
         textView.setText(displayWoord);
+
+        ImageView imageView = (ImageView) findViewById(R.id.logo);
+        imageView.setImageResource(getResources().getIdentifier("tekening"+displayWoord,"drawable",getPackageName()));
+
+       ImageView imageView1 = (ImageView) findViewById(R.id.woord1);
+        imageView1.setImageResource(getResources().getIdentifier("tekening"+splitted[0].trim().toLowerCase(),"drawable",getPackageName()));
+
+        ImageView imageView2 = (ImageView) findViewById(R.id.woord2);
+        imageView2.setImageResource(getResources().getIdentifier("tekening"+splitted[1].trim().toLowerCase(),"drawable",getPackageName()));
+
     }
 
 }
