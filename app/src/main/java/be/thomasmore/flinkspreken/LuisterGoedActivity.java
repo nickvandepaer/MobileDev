@@ -29,6 +29,8 @@ public class LuisterGoedActivity extends AppCompatActivity {
         setContentView(R.layout.activity_luister_goed);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+
     }
 
     @Override
