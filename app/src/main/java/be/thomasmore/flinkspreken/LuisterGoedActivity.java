@@ -41,7 +41,15 @@ public class LuisterGoedActivity extends AppCompatActivity {
         doelKlank = bundle.getString("Doelklank");
         minimalePaar = bundle.getString("MinimalePaar");
         ring = MediaPlayer.create(LuisterGoedActivity.this,R.raw.ring);
-        //ring.start();
+        ring.start();
+    }
+
+    @Override
+    public void onPause()
+    {
+        super.onPause();
+        ring.stop();
+        reeks.stop();
     }
 
     private void toon(String tekst)
