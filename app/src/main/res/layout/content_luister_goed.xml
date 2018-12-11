@@ -17,6 +17,17 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" >
 
+
+        <ImageView
+            android:id="@+id/luidspreker"
+            android:layout_marginLeft="5dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/luidspreker"
+            android:textSize="25sp"
+            android:layout_alignTop="@id/oor"
+            android:onClick="Luidspreker_onClick"
+            />
         <RelativeLayout
             android:id="@+id/luister_goed"
             android:orientation="horizontal"
@@ -25,23 +36,20 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="75dp"
             >
+            <pl.droidsonroids.gif.GifImageView
+                android:id="@+id/oor"
+                android:src="@drawable/signal"
+                android:layout_width="250dp"
+                android:layout_height="250dp"
 
-            <Button
-                android:id="@+id/luidspreker"
-                android:layout_marginLeft="5dp"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:text="luidspreker"
-                android:textSize="25sp"
-                android:layout_alignParentTop="true"
-                android:onClick="Luidspreker_onClick"
                 />
+
             <ImageView
                 android:id="@+id/oorImg"
                 android:layout_marginLeft="5dp"
-                android:layout_width="300dp"
-                android:layout_height="300dp"
-                android:src="@mipmap/oor"
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:src="@drawable/ear"
                 android:textSize="25sp"
                 android:layout_gravity="center_horizontal"
                 />
@@ -52,7 +60,7 @@
                 android:layout_height="wrap_content"
                 android:text="Start"
                 android:textSize="25sp"
-                android:layout_below="@id/oorImg"
+                android:layout_below="@id/oor"
                 android:onClick="Start_onClick"
                 />
 
