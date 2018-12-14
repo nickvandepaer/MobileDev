@@ -86,15 +86,12 @@ public class DoelklankActivity extends AppCompatActivity {
                 btn.setWidth(600);
                 btn.setTextSize(25);
                 btn.setBackgroundColor(Color.parseColor("#34ade5"));
-
                 LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
                         LinearLayout.LayoutParams.WRAP_CONTENT,
                         LinearLayout.LayoutParams.WRAP_CONTENT
                 );
                 params.setMargins(0, 10, 0, 0);
                 btn.setLayoutParams(params);
-
-
                 btn.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
                         btnClick((View)v);

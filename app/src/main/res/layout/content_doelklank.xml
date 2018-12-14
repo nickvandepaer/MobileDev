@@ -29,7 +29,7 @@
 
         <TextView android:id="@+id/Keuze"
             android:layout_height="wrap_content"
-            android:text="Kies uw doelklank."
+            android:text="Doelklank."
             android:textSize="30sp"
             android:layout_width="300dp"
             android:layout_gravity="center_horizontal"

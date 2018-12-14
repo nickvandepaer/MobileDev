@@ -1,11 +1,15 @@
 package be.thomasmore.flinkspreken;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -63,6 +67,7 @@ public class KeuzeMinimalePaarActivity extends AppCompatActivity {
         LinearLayout keuzeMinimalePaarLayout = (LinearLayout) findViewById(R.id.layout_keuze_minimale_paar);
         for (int i = 0; i < RIJ; i++) {
             LinearLayout linearLayout = new LinearLayout(this);
+            linearLayout.setGravity(Gravity.CENTER);
             linearLayout.setOrientation(LinearLayout.HORIZONTAL);
             linearLayout.setLayoutParams(
                     new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
@@ -75,6 +80,15 @@ public class KeuzeMinimalePaarActivity extends AppCompatActivity {
                 LinearLayout.LayoutParams imageLayoutParams =
                         new LinearLayout.LayoutParams(200,200);
                 btn.setText(filteredListMinimaleparen.get(k).getWoord1() + " - " + filteredListMinimaleparen.get(k).getWoord2());
+                btn.setWidth(600);
+                btn.setTextSize(25);
+                btn.setBackgroundColor(Color.parseColor("#34ade5"));
+                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.WRAP_CONTENT,
+                        LinearLayout.LayoutParams.WRAP_CONTENT
+                );
+                params.setMargins(0, 10, 0, 0);
+                btn.setLayoutParams(params);
                 btn.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
                         btnClick((View)v);
@@ -109,5 +123,17 @@ public class KeuzeMinimalePaarActivity extends AppCompatActivity {
     private void toon(String tekst)
     {
         Toast.makeText(getBaseContext(), tekst, Toast.LENGTH_SHORT).show();
+    }
+
+    public void Vraagteken_onClick(View v) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        String alert1 = "In dit scherm kan u het minimalepaar kiezen waarop u wilt oefenen.";
+        builder.setMessage(alert1).setPositiveButton(R.string.dialog_ok, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 }
