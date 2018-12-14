@@ -52,6 +52,7 @@
                 android:src="@drawable/ear"
                 android:textSize="25sp"
                 android:layout_gravity="center_horizontal"
+
                 />
             <Button
                 android:id="@+id/start"
