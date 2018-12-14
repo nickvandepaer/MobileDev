@@ -1,11 +1,15 @@
 package be.thomasmore.flinkspreken;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -68,6 +72,7 @@ public class DoelklankActivity extends AppCompatActivity {
         LinearLayout doelKlankLayout = (LinearLayout) findViewById(R.id.layout_doelKlank);
         for (int i = 0; i < RIJ; i++) {
             LinearLayout linearLayout = new LinearLayout(this);
+            linearLayout.setGravity(Gravity.CENTER);
             linearLayout.setOrientation(LinearLayout.HORIZONTAL);
             linearLayout.setLayoutParams(
                     new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
@@ -77,9 +82,19 @@ public class DoelklankActivity extends AppCompatActivity {
             for (int j = 0; j < KOLOM; j++) {
                 Button btn = new Button(this);
                 btn.setTag(keuzeArray[k]);
-                LinearLayout.LayoutParams imageLayoutParams =
-                        new LinearLayout.LayoutParams(200,200);
                 btn.setText(keuzeArray[k]);
+                btn.setWidth(600);
+                btn.setTextSize(25);
+                btn.setBackgroundColor(Color.parseColor("#34ade5"));
+
+                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.WRAP_CONTENT,
+                        LinearLayout.LayoutParams.WRAP_CONTENT
+                );
+                params.setMargins(0, 10, 0, 0);
+                btn.setLayoutParams(params);
+
+
                 btn.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
                         btnClick((View)v);
@@ -110,4 +125,15 @@ public class DoelklankActivity extends AppCompatActivity {
         finaalInitiaal = bundle.getString("FinaalInitiaalKeuze");
     }
 
+    public void Vraagteken_onClick(View v) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        String alert1 = "In dit scherm kan u de doelklank kiezen waarop u wilt oefenen.";
+        builder.setMessage(alert1).setPositiveButton(R.string.dialog_ok, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
 }
