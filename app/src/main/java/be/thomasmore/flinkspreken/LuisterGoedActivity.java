@@ -23,7 +23,7 @@ public class LuisterGoedActivity extends AppCompatActivity {
     String finaalInitiaal;
     String doelKlank;
     String minimalePaar;
-    MediaPlayer ring;
+    MediaPlayer gesprokenInstructie;
     MediaPlayer reeks;
 
     @Override
@@ -46,16 +46,20 @@ public class LuisterGoedActivity extends AppCompatActivity {
         finaalInitiaal = bundle.getString("FinaalInitiaalKeuze");
         doelKlank = bundle.getString("Doelklank");
         minimalePaar = bundle.getString("MinimalePaar");
-        ring = MediaPlayer.create(LuisterGoedActivity.this,R.raw.ring);
-        ring.start();
+        gesprokenInstructie = MediaPlayer.create(LuisterGoedActivity.this,R.raw.gesproken_instructie);
+        gesprokenInstructie.start();
     }
 
     @Override
     public void onPause()
     {
         super.onPause();
-        ring.stop();
-        reeks.stop();
+        if (gesprokenInstructie != null && gesprokenInstructie.isPlaying()){
+            gesprokenInstructie.stop();
+        }
+        if (reeks != null && reeks.isPlaying()){
+            reeks.stop();
+        }
     }
 
     private void toon(String tekst)
@@ -65,7 +69,7 @@ public class LuisterGoedActivity extends AppCompatActivity {
 
 
     public void Luidspreker_onClick(View v) {
-        ring.start();
+        gesprokenInstructie.start();
     }
 
     public void Start_onClick(View v) {
