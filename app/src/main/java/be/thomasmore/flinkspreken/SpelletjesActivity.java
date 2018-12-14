@@ -1,9 +1,11 @@
 package be.thomasmore.flinkspreken;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -56,5 +58,17 @@ public class SpelletjesActivity extends AppCompatActivity {
     private void toon(String tekst)
     {
         Toast.makeText(getBaseContext(), tekst, Toast.LENGTH_SHORT).show();
+    }
+
+    public void Vraagteken_onClick(View v) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        String alert1 = "Kies hier een spelletje waarmee u de woordjes kan oefenen.";
+        builder.setMessage(alert1).setPositiveButton(R.string.dialog_ok, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 }
