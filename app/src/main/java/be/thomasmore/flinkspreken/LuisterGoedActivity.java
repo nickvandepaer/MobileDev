@@ -12,6 +12,9 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 public class LuisterGoedActivity extends AppCompatActivity {
@@ -30,6 +33,7 @@ public class LuisterGoedActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        AnimateImage();
 
     }
 
@@ -151,6 +155,14 @@ public class LuisterGoedActivity extends AppCompatActivity {
             reeks = MediaPlayer.create(LuisterGoedActivity.this,R.raw.reeks9);
         }
         reeks.start();
+    }
+
+
+    public void AnimateImage() {
+        Animation shake = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.shakeanimation);
+        ImageView imgBell= (ImageView) findViewById(R.id.oorImg);
+        imgBell.setImageResource(R.drawable.ear);
+        imgBell.setAnimation(shake);
     }
 
 
