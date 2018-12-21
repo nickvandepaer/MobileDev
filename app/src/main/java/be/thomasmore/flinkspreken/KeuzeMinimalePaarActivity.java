@@ -128,7 +128,7 @@ public class KeuzeMinimalePaarActivity extends AppCompatActivity {
     public void Vraagteken_onClick(View v) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-        String alert1 = "In dit scherm kan u het minimalepaar kiezen waarop u wilt oefenen.";
+        String alert1 = "In dit scherm kan u het minimaal paar kiezen waarop u wilt oefenen.";
         builder.setMessage(alert1).setPositiveButton(R.string.dialog_ok, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
             }
