@@ -17,7 +17,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-public class LuisterGoedActivity extends AppCompatActivity {
+public class LuisterGoedActivity extends AppCompatActivity implements MediaPlayer.OnCompletionListener{
 
     String frontingStopping;
     String finaalInitiaal;
@@ -25,6 +25,8 @@ public class LuisterGoedActivity extends AppCompatActivity {
     String minimalePaar;
     MediaPlayer gesprokenInstructie;
     MediaPlayer reeks;
+    int[] tracks = new int[1];
+    int currentTrack = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,71 +97,74 @@ public class LuisterGoedActivity extends AppCompatActivity {
         if (frontingStopping.equals("fronting") && finaalInitiaal.equals("finaal")
                 && doelKlank.equals("K-T")){
             //1
-            toon("1");
             reeks = MediaPlayer.create(LuisterGoedActivity.this,R.raw.reeks1);
         }
         if (frontingStopping.equals("fronting") && finaalInitiaal.equals("finaal")
                 && doelKlank.equals("G-S")){
             //3
-            toon("3");
             reeks = MediaPlayer.create(LuisterGoedActivity.this,R.raw.reeks3);
         }
         if (frontingStopping.equals("fronting") && finaalInitiaal.equals("finaal")
                 && doelKlank.equals("NG-N")){
             //5
-            toon("5");
             reeks = MediaPlayer.create(LuisterGoedActivity.this,R.raw.reeks5);
         }
         if (frontingStopping.equals("fronting") && finaalInitiaal.equals("initiaal")
                 && doelKlank.equals("K-T")){
             //2
-            toon("2");
             reeks = MediaPlayer.create(LuisterGoedActivity.this,R.raw.reeks2);
         }
         if (frontingStopping.equals("fronting") && finaalInitiaal.equals("initiaal")
                 && doelKlank.equals("G-V/F/S")){
             //4
-            toon("4");
             reeks = MediaPlayer.create(LuisterGoedActivity.this,R.raw.reeks4);
         }
         if (frontingStopping.equals("stopping") && finaalInitiaal.equals("finaal")
                 && doelKlank.equals("S-T")){
             //6
-            toon("6");
             reeks = MediaPlayer.create(LuisterGoedActivity.this,R.raw.reeks6);
         }
         if (frontingStopping.equals("stopping") && finaalInitiaal.equals("finaal")
                 && doelKlank.equals("CH-T")){
             //3
-            toon("3");
             reeks = MediaPlayer.create(LuisterGoedActivity.this,R.raw.reeks3);
         }
         if (frontingStopping.equals("stopping") && finaalInitiaal.equals("initiaal")
                 && doelKlank.equals("G-K")){
             //4
-            toon("4");
             reeks = MediaPlayer.create(LuisterGoedActivity.this,R.raw.reeks4);
         }
         if (frontingStopping.equals("stopping") && finaalInitiaal.equals("initiaal")
                 && doelKlank.equals("S/Z-T") && minimalePaar.equals("Sok - Tok")){
             //7
-            toon("7");
             reeks = MediaPlayer.create(LuisterGoedActivity.this,R.raw.reeks7);
         }
         if (frontingStopping.equals("stopping") && finaalInitiaal.equals("initiaal")
                 && doelKlank.equals("S/Z-T") && minimalePaar.equals("Zak - Tak")){
             //8
-            toon("8");
             reeks = MediaPlayer.create(LuisterGoedActivity.this,R.raw.reeks8);
         }
         if (frontingStopping.equals("stopping") && finaalInitiaal.equals("initiaal")
                 && doelKlank.equals("F-T")){
             //9
-            toon("9");
             reeks = MediaPlayer.create(LuisterGoedActivity.this,R.raw.reeks9);
         }
+        currentTrack=0;
+        reeks.setOnCompletionListener(this);
         reeks.start();
     }
+
+    public void onCompletion(MediaPlayer arg0) {
+        arg0.release();
+        if (currentTrack < tracks.length) {
+            currentTrack++;
+            arg0 = MediaPlayer.create(LuisterGoedActivity.this,R.raw.superflinkgeluisterd);
+            arg0.setOnCompletionListener(this);
+            arg0.start();
+        }
+    }
+
+
 
 
     public void AnimateImage() {
