@@ -27,37 +27,36 @@
 
         <TextView android:id="@+id/Keuze"
             android:layout_height="wrap_content"
-            android:text="Finiaal of Initiaal"
-            android:textSize="30sp"
-            android:layout_width="300dp"
+            android:text="FINAAL OF INITIAAL"
+            android:textSize="45sp"
+            android:layout_width="350dp"
             android:layout_gravity="center_horizontal"
             android:textAlignment="center"
-            android:background="#34ade5"
             android:textColor="#000000"
             android:textStyle="bold"
-            android:layout_marginTop="100sp"/>
+            android:layout_marginTop="45sp"/>
         <Button
             android:id="@+id/finaalBtn"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
+            android:layout_width="250dp"
+            android:layout_height="120dp"
             android:text="Finaal"
             android:textSize="25sp"
             android:layout_gravity="center_horizontal"
             android:onClick="Finaal_onClick"
-            android:background="#34ade5"
             android:layout_marginTop="62sp"
+            android:background="@drawable/buttonimage"
             />
         <Button
             android:id="@+id/initiaalBtn"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
+            android:layout_width="250dp"
+            android:layout_height="120dp"
             android:text="Initiaal"
             android:textSize="25sp"
             android:layout_gravity="center_horizontal"
             android:layout_below="@id/finaalBtn"
             android:onClick="Initiaal_onClick"
-            android:background="#34ade5"
             android:layout_marginTop="10sp"
+            android:background="@drawable/buttonimage"
             />
 
     </LinearLayout>
