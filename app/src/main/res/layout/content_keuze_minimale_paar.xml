@@ -22,22 +22,19 @@
             android:layout_height="40dp"
             android:src="@drawable/vraagteken"
             android:textSize="25sp"
-            android:layout_margin="5sp"
+            android:layout_marginTop="5dp"
             android:onClick="Vraagteken_onClick"
             />
 
         <TextView android:id="@+id/Keuze"
             android:layout_height="wrap_content"
-            android:text="Minimaal paar"
-            android:textSize="30sp"
-            android:layout_width="300dp"
+            android:text="MINIMAAL PAAR"
+            android:textSize="45sp"
+            android:layout_width="350dp"
             android:layout_gravity="center_horizontal"
             android:textAlignment="center"
-            android:background="#34ade5"
             android:textColor="#000000"
-            android:textStyle="bold"
-            android:layout_marginTop="100sp"
-            android:layout_marginBottom="55sp"/>
+            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="match_parent"
