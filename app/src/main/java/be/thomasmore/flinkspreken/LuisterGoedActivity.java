@@ -14,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -25,8 +26,9 @@ public class LuisterGoedActivity extends AppCompatActivity implements MediaPlaye
     String minimalePaar;
     MediaPlayer gesprokenInstructie;
     MediaPlayer reeks;
-    int[] tracks = new int[1];
-    int currentTrack = 0;
+    MediaPlayer eindeSpel;
+    int[] items = new int[2];
+    int currentItem = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,18 +52,22 @@ public class LuisterGoedActivity extends AppCompatActivity implements MediaPlaye
         minimalePaar = bundle.getString("MinimalePaar");
         gesprokenInstructie = MediaPlayer.create(LuisterGoedActivity.this,R.raw.gesproken_instructie);
         gesprokenInstructie.start();
+
     }
 
     @Override
     public void onPause()
     {
-        super.onPause();
         if (gesprokenInstructie != null && gesprokenInstructie.isPlaying()){
             gesprokenInstructie.stop();
+        }
+        if (eindeSpel != null && eindeSpel.isPlaying()){
+            eindeSpel.stop();
         }
         if (reeks != null && reeks.isPlaying()){
             reeks.stop();
         }
+        super.onPause();
     }
 
     private void toon(String tekst)
@@ -79,15 +85,19 @@ public class LuisterGoedActivity extends AppCompatActivity implements MediaPlaye
         if(audioManager.isWiredHeadsetOn()){
             SpeelAuditiefBombardementAf();
         }else {
-            ShowDialog();
+            ShowDialog("Steek je oortjes of headphone in voor een betere ervaring van het spel. Druk hierna terug op Start.", 0);
         }
     }
 
-    private void ShowDialog(){
+    private void ShowDialog(String bericht, final int doorsturenSpelPagina){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage(R.string.dialog_message)
+        builder.setMessage(bericht)
                 .setPositiveButton(R.string.dialog_ok, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int whichButton) { }
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        if(doorsturenSpelPagina == 1){
+                            finish();
+                        }
+                    }
                 });
         AlertDialog dialog = builder.create();
         dialog.show();
@@ -149,23 +159,26 @@ public class LuisterGoedActivity extends AppCompatActivity implements MediaPlaye
             //9
             reeks = MediaPlayer.create(LuisterGoedActivity.this,R.raw.reeks9);
         }
-        currentTrack=0;
+        currentItem=0;
         reeks.setOnCompletionListener(this);
         reeks.start();
+        AnimateImage();
     }
 
     public void onCompletion(MediaPlayer arg0) {
-        arg0.release();
-        if (currentTrack < tracks.length) {
-            currentTrack++;
-            arg0 = MediaPlayer.create(LuisterGoedActivity.this,R.raw.superflinkgeluisterd);
-            arg0.setOnCompletionListener(this);
-            arg0.start();
+        //arg0.release();
+        if (currentItem < items.length) {
+            currentItem++;
+            if(currentItem == 1){
+                eindeSpel = MediaPlayer.create(LuisterGoedActivity.this,R.raw.superflinkgeluisterd);
+                eindeSpel.setOnCompletionListener(this);
+                eindeSpel.start();
+            }
+            if(currentItem == 2){
+                ShowDialog("Goed gedaan! Je spel is afgelopen. Je wordt automatisch terug gestuurd naar het spelletjes overzicht.", 1);
+            }
         }
     }
-
-
-
 
     public void AnimateImage() {
         Animation shake = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.shakeanimation);
