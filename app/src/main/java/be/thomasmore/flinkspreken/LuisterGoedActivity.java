@@ -184,6 +184,7 @@ public class LuisterGoedActivity extends AppCompatActivity implements MediaPlaye
         ImageView imgBell= (ImageView) findViewById(R.id.oorImg);
         imgBell.setImageResource(R.drawable.ear);
         imgBell.setAnimation(shake);
+
     }
 
 
