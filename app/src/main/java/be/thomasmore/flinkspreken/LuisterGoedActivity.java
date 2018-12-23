@@ -162,7 +162,6 @@ public class LuisterGoedActivity extends AppCompatActivity implements MediaPlaye
         currentItem=0;
         reeks.setOnCompletionListener(this);
         reeks.start();
-        AnimateImage();
     }
 
     public void onCompletion(MediaPlayer arg0) {
