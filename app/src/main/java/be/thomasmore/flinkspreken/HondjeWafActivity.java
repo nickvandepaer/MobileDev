@@ -79,6 +79,27 @@ public class HondjeWafActivity extends AppCompatActivity {
         Toast.makeText(getBaseContext(), tekst, Toast.LENGTH_SHORT).show();
     }
 
+    @Override
+    public void onPause()
+    {
+        if (gesprokenInstructie != null && gesprokenInstructie.isPlaying()){
+            gesprokenInstructie.stop();
+        }
+        if (botgeluid != null && botgeluid.isPlaying()){
+            botgeluid.stop();
+        }
+        if (juist != null && juist.isPlaying()){
+            juist.stop();
+        }
+        if (fout != null && fout.isPlaying()){
+            fout.stop();
+        }
+        super.onPause();
+    }
+
+    public void Luidspreker_onClick(View v) {
+        gesprokenInstructie.start();
+    }
 
     public void Bot_onClick(View v) {
         botgeluid.start();
