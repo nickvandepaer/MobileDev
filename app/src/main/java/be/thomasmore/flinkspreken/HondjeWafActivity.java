@@ -21,6 +21,7 @@ public class HondjeWafActivity extends AppCompatActivity {
     String woord1;
     String woord2;
     String juisteWoord;
+    MediaPlayer gesprokenInstructie;
     MediaPlayer botgeluid;
     MediaPlayer juist;
     MediaPlayer fout;
@@ -68,6 +69,9 @@ public class HondjeWafActivity extends AppCompatActivity {
         int pathw2 = getResources().getIdentifier("tekening" + woord2, "drawable", getPackageName());
         w2.setTag(woord2);
         w2.setImageResource(pathw2);
+
+        gesprokenInstructie = MediaPlayer.create(HondjeWafActivity.this,R.raw.gesproken_instructie);
+        gesprokenInstructie.start();
     }
 
     private void toon(String tekst)
