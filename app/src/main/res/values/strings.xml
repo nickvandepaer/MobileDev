@@ -12,6 +12,7 @@
     </string>
     <string name="title_activity_keuze_minimale_paar">KeuzeMinimalePaarActivity</string>
     <string name="dialog_ok">Begrepen</string>
+    <string name="title_activity_hondje_waf">HondjeWafActivity</string>
 
 
 </resources>

@@ -42,6 +42,14 @@ public class SpelletjesActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void HondjeWaf_onClick(View v) {
+        Button btn = (Button) v;
+        Bundle bundle = getIntent().getExtras();
+        Intent intent = new Intent(this, HondjeWafActivity.class);
+        intent.putExtras(bundle);
+        startActivity(intent);
+    }
+
     public void ZegHetEensZelf_onClick(View v) {
         Button btn = (Button) v;
         Bundle bundle = getIntent().getExtras();
