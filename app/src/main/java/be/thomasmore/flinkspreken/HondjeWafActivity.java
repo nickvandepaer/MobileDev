@@ -1,10 +1,12 @@
 package be.thomasmore.flinkspreken;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -56,7 +58,6 @@ public class HondjeWafActivity extends AppCompatActivity {
             juisteWoord = woord2;
         }
 
-        juist = MediaPlayer.create(HondjeWafActivity.this,R.raw.waf);
         int soundId = getResources().getIdentifier(juisteWoord, "raw", getPackageName());
         botgeluid = MediaPlayer.create(HondjeWafActivity.this,soundId);
 
@@ -118,6 +119,15 @@ public class HondjeWafActivity extends AppCompatActivity {
 
     private void ControleerAntwoord(ImageView afbeelding){
         if(juisteWoord.equals(afbeelding.getTag().toString())){
+
+            currentItem=0;
+            juist = MediaPlayer.create(HondjeWafActivity.this,R.raw.waf);
+            juist.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                @Override
+                public void onCompletion(MediaPlayer mediaPlayer){
+                    ShowDialog("Goed gedaan! Je spel is afgelopen. Je wordt automatisch terug gestuurd naar het spelletjes overzicht.", 1);
+                }
+            } );
             juist.start();
         }else {
             currentItem=0;
@@ -130,5 +140,19 @@ public class HondjeWafActivity extends AppCompatActivity {
             } );
             fout.start();
         }
+    }
+
+    private void ShowDialog(String bericht, final int doorsturenSpelPagina){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(bericht)
+                .setPositiveButton(R.string.dialog_ok, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        if(doorsturenSpelPagina == 1){
+                            finish();
+                        }
+                    }
+                });
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 }
