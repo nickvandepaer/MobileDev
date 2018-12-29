@@ -19,6 +19,8 @@ public class ZegHetZelfEensSchermAcitivity extends AppCompatActivity {
 
     String logo;
     String woord;
+    String splitwoord;
+    String splitwoord1;
     String displayWoord;
 
     @Override
@@ -27,8 +29,10 @@ public class ZegHetZelfEensSchermAcitivity extends AppCompatActivity {
         setContentView(R.layout.activity_zeg_het_zelf_eens_scherm_acitivity);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        toonLogo();
+
         KiesWoord();
+      //  toonLogo();
+
 
     }
 
@@ -40,7 +44,7 @@ public class ZegHetZelfEensSchermAcitivity extends AppCompatActivity {
     private void toonLogo() {
         Bundle bundle = getIntent().getExtras();
 
-        logo = bundle.getString("logo");
+       logo = bundle.getString("logo");
 
         ImageView imageView = (ImageView) findViewById(R.id.logo);
         imageView.setImageResource(getResources().getIdentifier(logo,"drawable",getPackageName()));
@@ -52,6 +56,8 @@ public class ZegHetZelfEensSchermAcitivity extends AppCompatActivity {
 
         woord = bundle.getString("minimalepaar");
         String[] splitted = woord.split("-");
+        splitwoord = "tekening" + splitted[0].trim().toLowerCase();
+        splitwoord1 = "tekening" + splitted[1].trim().toLowerCase();
 
         Random rand = new Random();
 
@@ -59,12 +65,12 @@ public class ZegHetZelfEensSchermAcitivity extends AppCompatActivity {
 
         if(random > 50)
         {
-            displayWoord = splitted[0].trim().toLowerCase();
+            displayWoord = splitwoord;
             toon(splitted[0]);
         }
         else
         {
-            displayWoord = splitted[1].trim().toLowerCase();
+            displayWoord = splitwoord1;
             toon(splitted[1]);
         }
 
@@ -72,13 +78,13 @@ public class ZegHetZelfEensSchermAcitivity extends AppCompatActivity {
         textView.setText(displayWoord);
 
         ImageView imageView = (ImageView) findViewById(R.id.logo);
-        imageView.setImageResource(getResources().getIdentifier("tekening"+displayWoord,"drawable",getPackageName()));
+        imageView.setImageResource(getResources().getIdentifier(displayWoord.toString(),"drawable",getPackageName()));
 
-       ImageView imageView1 = (ImageView) findViewById(R.id.woord1);
-        imageView1.setImageResource(getResources().getIdentifier("tekening"+splitted[0].trim().toLowerCase(),"drawable",getPackageName()));
+    //   ImageView imageView1 = (ImageView) findViewById(R.id.woord1);
+     //   imageView1.setImageResource(getResources().getIdentifier("tekening"+splitwoord,"drawable",getPackageName()));
 
-        ImageView imageView2 = (ImageView) findViewById(R.id.woord2);
-        imageView2.setImageResource(getResources().getIdentifier("tekening"+splitted[1].trim().toLowerCase(),"drawable",getPackageName()));
+       // ImageView imageView2 = (ImageView) findViewById(R.id.woord2);
+        //imageView2.setImageResource(getResources().getIdentifier("tekening"+splitwoord1,"drawable",getPackageName()));
 
     }
 

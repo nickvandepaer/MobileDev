@@ -88,7 +88,7 @@ public class ZegHetZelfEensActivity extends AppCompatActivity {
                 imageLayoutParams.leftMargin = 5;
                 imageLayoutParams.topMargin = 5;
                 imageView.setLayoutParams(imageLayoutParams);
-                imageView.setTag("ear");
+                imageView.setTag("ear" +j);
 
                 imageView.setOnClickListener(new View.OnClickListener() {
                     public  void onClick(View v)
