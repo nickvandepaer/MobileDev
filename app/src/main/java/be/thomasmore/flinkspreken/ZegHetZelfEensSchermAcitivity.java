@@ -74,17 +74,17 @@ public class ZegHetZelfEensSchermAcitivity extends AppCompatActivity {
             toon(splitted[1]);
         }
 
-        TextView textView = (TextView) findViewById(R.id.woord);
-        textView.setText(displayWoord);
+     //   TextView textView = (TextView) findViewById(R.id.woord);
+       // textView.setText(displayWoord);
 
         ImageView imageView = (ImageView) findViewById(R.id.logo);
         imageView.setImageResource(getResources().getIdentifier(displayWoord.toString(),"drawable",getPackageName()));
 
-    //   ImageView imageView1 = (ImageView) findViewById(R.id.woord1);
-     //   imageView1.setImageResource(getResources().getIdentifier("tekening"+splitwoord,"drawable",getPackageName()));
+       ImageView imageView1 = (ImageView) findViewById(R.id.woord1);
+        imageView1.setImageResource(getResources().getIdentifier(splitwoord,"drawable",getPackageName()));
 
-       // ImageView imageView2 = (ImageView) findViewById(R.id.woord2);
-        //imageView2.setImageResource(getResources().getIdentifier("tekening"+splitwoord1,"drawable",getPackageName()));
+        ImageView imageView2 = (ImageView) findViewById(R.id.woord2);
+        imageView2.setImageResource(getResources().getIdentifier(splitwoord1,"drawable",getPackageName()));
 
     }
 

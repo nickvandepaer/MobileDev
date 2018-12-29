@@ -13,6 +13,7 @@
     <string name="title_activity_keuze_minimale_paar">KeuzeMinimalePaarActivity</string>
     <string name="dialog_ok">Begrepen</string>
     <string name="title_activity_hondje_waf">HondjeWafActivity</string>
+    <string name="title_activity_zeg_het_zelf_eens_een_scherm">ZegHetZelfEensEenScherm</string>
 
 
 </resources>

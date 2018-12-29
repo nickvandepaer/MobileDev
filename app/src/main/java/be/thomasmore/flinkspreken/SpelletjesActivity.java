@@ -53,7 +53,7 @@ public class SpelletjesActivity extends AppCompatActivity {
     public void ZegHetEensZelf_onClick(View v) {
         Button btn = (Button) v;
         Bundle bundle = getIntent().getExtras();
-        Intent intent = new Intent(this, ZegHetZelfEensActivity.class);
+        Intent intent = new Intent(this, ZegHetZelfEensEenScherm.class);
         intent.putExtras(bundle);
         startActivity(intent);
     }
