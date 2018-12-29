@@ -14,10 +14,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-public class LuisterGoedActivity extends AppCompatActivity {
+public class LuisterGoedActivity extends AppCompatActivity implements MediaPlayer.OnCompletionListener{
 
     String frontingStopping;
     String finaalInitiaal;
@@ -25,6 +26,9 @@ public class LuisterGoedActivity extends AppCompatActivity {
     String minimalePaar;
     MediaPlayer gesprokenInstructie;
     MediaPlayer reeks;
+    MediaPlayer eindeSpel;
+    int[] items = new int[2];
+    int currentItem = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,18 +52,22 @@ public class LuisterGoedActivity extends AppCompatActivity {
         minimalePaar = bundle.getString("MinimalePaar");
         gesprokenInstructie = MediaPlayer.create(LuisterGoedActivity.this,R.raw.gesproken_instructie);
         gesprokenInstructie.start();
+
     }
 
     @Override
     public void onPause()
     {
-        super.onPause();
         if (gesprokenInstructie != null && gesprokenInstructie.isPlaying()){
             gesprokenInstructie.stop();
+        }
+        if (eindeSpel != null && eindeSpel.isPlaying()){
+            eindeSpel.stop();
         }
         if (reeks != null && reeks.isPlaying()){
             reeks.stop();
         }
+        super.onPause();
     }
 
     private void toon(String tekst)
@@ -77,15 +85,19 @@ public class LuisterGoedActivity extends AppCompatActivity {
         if(audioManager.isWiredHeadsetOn()){
             SpeelAuditiefBombardementAf();
         }else {
-            ShowDialog();
+            ShowDialog("Steek je oortjes of headphone in voor een betere ervaring van het spel. Druk hierna terug op Start.", 0);
         }
     }
 
-    private void ShowDialog(){
+    private void ShowDialog(String bericht, final int doorsturenSpelPagina){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage(R.string.dialog_message)
+        builder.setMessage(bericht)
                 .setPositiveButton(R.string.dialog_ok, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int whichButton) { }
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        if(doorsturenSpelPagina == 1){
+                            finish();
+                        }
+                    }
                 });
         AlertDialog dialog = builder.create();
         dialog.show();
@@ -95,78 +107,84 @@ public class LuisterGoedActivity extends AppCompatActivity {
         if (frontingStopping.equals("fronting") && finaalInitiaal.equals("finaal")
                 && doelKlank.equals("K-T")){
             //1
-            toon("1");
             reeks = MediaPlayer.create(LuisterGoedActivity.this,R.raw.reeks1);
         }
         if (frontingStopping.equals("fronting") && finaalInitiaal.equals("finaal")
                 && doelKlank.equals("G-S")){
             //3
-            toon("3");
             reeks = MediaPlayer.create(LuisterGoedActivity.this,R.raw.reeks3);
         }
         if (frontingStopping.equals("fronting") && finaalInitiaal.equals("finaal")
                 && doelKlank.equals("NG-N")){
             //5
-            toon("5");
             reeks = MediaPlayer.create(LuisterGoedActivity.this,R.raw.reeks5);
         }
         if (frontingStopping.equals("fronting") && finaalInitiaal.equals("initiaal")
                 && doelKlank.equals("K-T")){
             //2
-            toon("2");
             reeks = MediaPlayer.create(LuisterGoedActivity.this,R.raw.reeks2);
         }
         if (frontingStopping.equals("fronting") && finaalInitiaal.equals("initiaal")
                 && doelKlank.equals("G-V/F/S")){
             //4
-            toon("4");
             reeks = MediaPlayer.create(LuisterGoedActivity.this,R.raw.reeks4);
         }
         if (frontingStopping.equals("stopping") && finaalInitiaal.equals("finaal")
                 && doelKlank.equals("S-T")){
             //6
-            toon("6");
             reeks = MediaPlayer.create(LuisterGoedActivity.this,R.raw.reeks6);
         }
         if (frontingStopping.equals("stopping") && finaalInitiaal.equals("finaal")
                 && doelKlank.equals("CH-T")){
             //3
-            toon("3");
             reeks = MediaPlayer.create(LuisterGoedActivity.this,R.raw.reeks3);
         }
         if (frontingStopping.equals("stopping") && finaalInitiaal.equals("initiaal")
                 && doelKlank.equals("G-K")){
             //4
-            toon("4");
             reeks = MediaPlayer.create(LuisterGoedActivity.this,R.raw.reeks4);
         }
         if (frontingStopping.equals("stopping") && finaalInitiaal.equals("initiaal")
                 && doelKlank.equals("S/Z-T") && minimalePaar.equals("Sok - Tok")){
             //7
-            toon("7");
             reeks = MediaPlayer.create(LuisterGoedActivity.this,R.raw.reeks7);
         }
         if (frontingStopping.equals("stopping") && finaalInitiaal.equals("initiaal")
                 && doelKlank.equals("S/Z-T") && minimalePaar.equals("Zak - Tak")){
             //8
-            toon("8");
             reeks = MediaPlayer.create(LuisterGoedActivity.this,R.raw.reeks8);
         }
         if (frontingStopping.equals("stopping") && finaalInitiaal.equals("initiaal")
                 && doelKlank.equals("F-T")){
             //9
-            toon("9");
             reeks = MediaPlayer.create(LuisterGoedActivity.this,R.raw.reeks9);
         }
+        currentItem=0;
+        reeks.setOnCompletionListener(this);
         reeks.start();
     }
 
+    public void onCompletion(MediaPlayer arg0) {
+        //arg0.release();
+        if (currentItem < items.length) {
+            currentItem++;
+            if(currentItem == 1){
+                eindeSpel = MediaPlayer.create(LuisterGoedActivity.this,R.raw.superflinkgeluisterd);
+                eindeSpel.setOnCompletionListener(this);
+                eindeSpel.start();
+            }
+            if(currentItem == 2){
+                ShowDialog("Goed gedaan! Je spel is afgelopen. Je wordt automatisch terug gestuurd naar het spelletjes overzicht.", 1);
+            }
+        }
+    }
 
     public void AnimateImage() {
         Animation shake = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.shakeanimation);
         ImageView imgBell= (ImageView) findViewById(R.id.oorImg);
         imgBell.setImageResource(R.drawable.ear);
         imgBell.setAnimation(shake);
+
     }
 
 

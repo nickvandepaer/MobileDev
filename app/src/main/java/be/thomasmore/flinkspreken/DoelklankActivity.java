@@ -3,6 +3,7 @@ package be.thomasmore.flinkspreken;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -18,6 +19,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.List;
@@ -39,6 +41,10 @@ public class DoelklankActivity extends AppCompatActivity {
         setContentView(R.layout.activity_doelklank);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        TextView textView = (TextView) findViewById(R.id.Keuze);
+        Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/PWBalloon.ttf");
+        textView.setTypeface(typeface);
 
         Bundle bundle = getIntent().getExtras();
         frontingStopping = bundle.getString("FrontingStoppingKeuze");
@@ -83,14 +89,13 @@ public class DoelklankActivity extends AppCompatActivity {
                 Button btn = new Button(this);
                 btn.setTag(keuzeArray[k]);
                 btn.setText(keuzeArray[k]);
-                btn.setWidth(600);
                 btn.setTextSize(25);
-                btn.setBackgroundColor(Color.parseColor("#34ade5"));
+                btn.setBackgroundResource(R.drawable.buttonimage);
                 LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                        LinearLayout.LayoutParams.WRAP_CONTENT,
-                        LinearLayout.LayoutParams.WRAP_CONTENT
+                        500,
+                        240
                 );
-                params.setMargins(0, 10, 0, 0);
+                params.setMargins(0, 10, 0, 10);
                 btn.setLayoutParams(params);
                 btn.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {

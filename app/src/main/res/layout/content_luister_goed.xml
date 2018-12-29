@@ -7,7 +7,7 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".LuisterGoedActivity"
     tools:showIn="@layout/activity_luister_goed"
-    android:background="#9DCDF3">
+    android:background="@drawable/background">
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -34,19 +34,20 @@
             android:src="@drawable/ear"
             android:textSize="25sp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="100sp"
+            android:layout_marginTop="65sp"
             />
+
         <Button
             android:id="@+id/start"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
+            android:layout_width="250dp"
+            android:layout_height="120dp"
+            android:textSize="30sp"
             android:text="Start"
-            android:textSize="25sp"
-            android:layout_below="@id/oorImg"
-            android:onClick="Start_onClick"
             android:layout_gravity="center_horizontal"
-            android:background="#34ade5"
+            android:layout_below="@id/oorImg"
             android:layout_marginTop="62sp"
+            android:onClick="Start_onClick"
+            android:background="@drawable/buttonimage"
             />
     </LinearLayout>
 
