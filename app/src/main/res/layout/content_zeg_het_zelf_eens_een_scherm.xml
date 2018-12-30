@@ -173,6 +173,7 @@
                 android:layout_below="@id/woord"
                 android:layout_margin="20dp"
                 android:background="@drawable/border"
+                android:onClick="Woord1_onClick"
                 />
 
             <ImageView
@@ -183,6 +184,7 @@
                 android:layout_below="@id/woord"
                 android:layout_toRightOf="@id/woord1"
                 android:background="@drawable/border"
+                android:onClick="Woord2_onClick"
                 />
 
         </LinearLayout>

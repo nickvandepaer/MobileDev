@@ -1,13 +1,16 @@
 package be.thomasmore.flinkspreken;
 
+import android.content.DialogInterface;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import java.util.Random;
 
@@ -22,7 +25,9 @@ public class ZegHetZelfEensEenScherm extends AppCompatActivity {
     MediaPlayer botgeluid;
     MediaPlayer juist;
     MediaPlayer fout;
+    int teller;
     int[] items = new int[1];
+    ImageView imgView;
     int currentItem = 0;
 
     @Override
@@ -38,6 +43,7 @@ public class ZegHetZelfEensEenScherm extends AppCompatActivity {
         super.onStart();
         Bundle bundle = getIntent().getExtras();
         minimalePaar = bundle.getString("MinimalePaar");
+        teller = 0;
 
         String[] separated = minimalePaar.split("-");
         woord1 = separated[0].trim().toLowerCase();
@@ -73,7 +79,10 @@ public class ZegHetZelfEensEenScherm extends AppCompatActivity {
         gesprokenInstructie.start();
     }
 
-
+    private void toon(String tekst)
+    {
+        Toast.makeText(getBaseContext(), tekst, Toast.LENGTH_SHORT).show();
+    }
 
     public void Afbeelding_onClick(View v)
     {
@@ -87,12 +96,56 @@ public class ZegHetZelfEensEenScherm extends AppCompatActivity {
         }
 
         int id = v.getId();
-        ImageView imgView = (ImageView) findViewById(id);
+        imgView = (ImageView) findViewById(id);
         int img = getResources().getIdentifier("tekening"+juisteWoord, "drawable", getPackageName());
+        imgView.setTag(juisteWoord);
         imgView.setImageResource(img);
     }
 
+    private void ControleerAntwoord(ImageView afbeelding)
+    {
+        if(juisteWoord.equals(afbeelding.getTag()))
+        {
+            toon("goed zo");
+            teller++;
+        }
+        else
+        {
+            toon("fout antwoord");
+            int img = getResources().getIdentifier("varken", "drawable", getPackageName());
+            imgView.setImageResource(img);
+        }
+        if(teller == 9)
+        {
+            ShowDialog("Goed gedaan! Je spel is afgelopen. Je wordt automatisch terug gestuurd naar het spelletjes overzicht.", 1);
+        }
+    }
 
+    public void  Woord1_onClick(View v)
+    {
+        ImageView w1 = (ImageView) findViewById(R.id.woord1);
+        ControleerAntwoord(w1);
+    }
+
+    public void  Woord2_onClick(View v)
+    {
+        ImageView w2 = (ImageView) findViewById(R.id.woord2);
+        ControleerAntwoord(w2);
+    }
+
+    private void ShowDialog(String bericht, final int doorsturenSpelPagina) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(bericht)
+                .setPositiveButton(R.string.dialog_ok, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        if (doorsturenSpelPagina == 1) {
+                            finish();
+                        }
+                    }
+                });
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
 
 
 
