@@ -71,7 +71,7 @@ public class HondjeWafActivity extends AppCompatActivity {
         w2.setTag(woord2);
         w2.setImageResource(pathw2);
 
-        gesprokenInstructie = MediaPlayer.create(HondjeWafActivity.this,R.raw.gesproken_instructie);
+        gesprokenInstructie = MediaPlayer.create(HondjeWafActivity.this,R.raw.spel2);
         gesprokenInstructie.start();
     }
 

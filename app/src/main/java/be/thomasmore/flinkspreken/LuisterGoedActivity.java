@@ -37,7 +37,7 @@ public class LuisterGoedActivity extends AppCompatActivity implements MediaPlaye
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        AnimateImage();
+
 
     }
 
@@ -50,7 +50,7 @@ public class LuisterGoedActivity extends AppCompatActivity implements MediaPlaye
         finaalInitiaal = bundle.getString("FinaalInitiaalKeuze");
         doelKlank = bundle.getString("Doelklank");
         minimalePaar = bundle.getString("MinimalePaar");
-        gesprokenInstructie = MediaPlayer.create(LuisterGoedActivity.this,R.raw.gesproken_instructie);
+        gesprokenInstructie = MediaPlayer.create(LuisterGoedActivity.this,R.raw.spel1);
         gesprokenInstructie.start();
 
     }
@@ -80,12 +80,12 @@ public class LuisterGoedActivity extends AppCompatActivity implements MediaPlaye
         gesprokenInstructie.start();
     }
 
-    public void Start_onClick(View v) {
+    public void Oor_onClick(View v) {
         AudioManager audioManager = (AudioManager)getSystemService(Context.AUDIO_SERVICE);
         if(audioManager.isWiredHeadsetOn()){
             SpeelAuditiefBombardementAf();
         }else {
-            ShowDialog("Steek je oortjes of headphone in voor een betere ervaring van het spel. Druk hierna terug op Start.", 0);
+            ShowDialog("Steek je oortjes of hoofdtelefoon in voor een betere ervaring van het spel. Druk hierna terug op het oor.", 0);
         }
     }
 
@@ -169,7 +169,7 @@ public class LuisterGoedActivity extends AppCompatActivity implements MediaPlaye
         if (currentItem < items.length) {
             currentItem++;
             if(currentItem == 1){
-                eindeSpel = MediaPlayer.create(LuisterGoedActivity.this,R.raw.superflinkgeluisterd);
+                eindeSpel = MediaPlayer.create(LuisterGoedActivity.this,R.raw.flinkgeluisterd);
                 eindeSpel.setOnCompletionListener(this);
                 eindeSpel.start();
             }
@@ -178,14 +178,4 @@ public class LuisterGoedActivity extends AppCompatActivity implements MediaPlaye
             }
         }
     }
-
-    public void AnimateImage() {
-        Animation shake = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.shakeanimation);
-        ImageView imgBell= (ImageView) findViewById(R.id.oorImg);
-        imgBell.setImageResource(R.drawable.ear);
-        imgBell.setAnimation(shake);
-
-    }
-
-
 }

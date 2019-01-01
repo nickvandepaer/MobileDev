@@ -35,19 +35,7 @@
             android:textSize="25sp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="65sp"
-            />
-
-        <Button
-            android:id="@+id/start"
-            android:layout_width="250dp"
-            android:layout_height="120dp"
-            android:textSize="30sp"
-            android:text="Start"
-            android:layout_gravity="center_horizontal"
-            android:layout_below="@id/oorImg"
-            android:layout_marginTop="62sp"
-            android:onClick="Start_onClick"
-            android:background="@drawable/buttonimage"
+            android:onClick="Oor_onClick"
             />
     </LinearLayout>
 

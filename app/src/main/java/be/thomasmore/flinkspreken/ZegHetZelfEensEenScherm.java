@@ -22,10 +22,11 @@ public class ZegHetZelfEensEenScherm extends AppCompatActivity {
     String woord2;
     String juisteWoord;
     MediaPlayer gesprokenInstructie;
-    MediaPlayer botgeluid;
+    MediaPlayer afbeeldingGeluid;
     MediaPlayer juist;
     MediaPlayer fout;
     int teller;
+    int tussenTeller = -1;
     int[] items = new int[1];
     ImageView imgView;
     int currentItem = 0;
@@ -49,29 +50,19 @@ public class ZegHetZelfEensEenScherm extends AppCompatActivity {
         woord1 = separated[0].trim().toLowerCase();
         woord2 = separated[1].trim().toLowerCase();
 
-        Random rand = new Random();
-        int random = rand.nextInt(2);
-        random = random+1;
-        if(random == 1){
-            juisteWoord = woord1;
-        }else {
-            juisteWoord = woord2;
-        }
-
-        int soundId = getResources().getIdentifier(juisteWoord, "raw", getPackageName());
-        botgeluid = MediaPlayer.create(ZegHetZelfEensEenScherm.this,soundId);
-
         ImageView w1 = (ImageView) findViewById(R.id.woord1);
         int pathw1 = getResources().getIdentifier("tekening" + woord1, "drawable", getPackageName());
         w1.setTag(woord1);
         w1.setImageResource(pathw1);
+        w1.setEnabled(false);
 
         ImageView w2 = (ImageView) findViewById(R.id.woord2);
         int pathw2 = getResources().getIdentifier("tekening" + woord2, "drawable", getPackageName());
         w2.setTag(woord2);
         w2.setImageResource(pathw2);
+        w2.setEnabled(false);
 
-        gesprokenInstructie = MediaPlayer.create(ZegHetZelfEensEenScherm.this,R.raw.gesproken_instructie);
+        gesprokenInstructie = MediaPlayer.create(ZegHetZelfEensEenScherm.this,R.raw.spel3);
         gesprokenInstructie.start();
     }
 
@@ -84,36 +75,65 @@ public class ZegHetZelfEensEenScherm extends AppCompatActivity {
         Toast.makeText(getBaseContext(), tekst, Toast.LENGTH_SHORT).show();
     }
 
+    @Override
+    public void onPause()
+    {
+        if (gesprokenInstructie != null && gesprokenInstructie.isPlaying()){
+            gesprokenInstructie.stop();
+        }
+        if (afbeeldingGeluid != null && afbeeldingGeluid.isPlaying()){
+            afbeeldingGeluid.stop();
+        }
+        if (juist != null && juist.isPlaying()){
+            juist.stop();
+        }
+        if (fout != null && fout.isPlaying()){
+            fout.stop();
+        }
+        super.onPause();
+    }
+
     public void Afbeelding_onClick(View v)
     {
-        Random rand = new Random();
-        int random = rand.nextInt(2);
-        random = random+1;
-        if(random == 1){
-            juisteWoord = woord1;
-        }else {
-            juisteWoord = woord2;
+        if(tussenTeller != teller){
+            Random rand = new Random();
+            int random = rand.nextInt(2);
+            random = random+1;
+            if(random == 1){
+                juisteWoord = woord1;
+            }else {
+                juisteWoord = woord2;
+            }
+            int soundId = getResources().getIdentifier(juisteWoord, "raw", getPackageName());
+            afbeeldingGeluid = MediaPlayer.create(ZegHetZelfEensEenScherm.this,soundId);
         }
+
+        EnableWoorden(true);
 
         int id = v.getId();
         imgView = (ImageView) findViewById(id);
         int img = getResources().getIdentifier("tekening"+juisteWoord, "drawable", getPackageName());
         imgView.setTag(juisteWoord);
         imgView.setImageResource(img);
+        afbeeldingGeluid.start();
     }
 
     private void ControleerAntwoord(ImageView afbeelding)
     {
+        EnableWoorden(false);
         if(juisteWoord.equals(afbeelding.getTag()))
         {
-            toon("goed zo");
             teller++;
+            juist = MediaPlayer.create(ZegHetZelfEensEenScherm.this,R.raw.goed_gedaan);
+            juist.start();
         }
         else
         {
-            toon("fout antwoord");
             int img = getResources().getIdentifier("varken", "drawable", getPackageName());
             imgView.setImageResource(img);
+            fout = MediaPlayer.create(ZegHetZelfEensEenScherm.this,R.raw.bijna_goed_nog_eens);
+            fout.start();
+            tussenTeller = teller;
         }
         if(teller == 9)
         {
@@ -147,6 +167,18 @@ public class ZegHetZelfEensEenScherm extends AppCompatActivity {
         dialog.show();
     }
 
+    private void EnableWoorden(Boolean clickable){
+        ImageView w1 = (ImageView) findViewById(R.id.woord1);
+        ImageView w2 = (ImageView) findViewById(R.id.woord2);
+        if(clickable == true){
+            w1.setEnabled(true);
+            w2.setEnabled(true);
+        }else{
+            w1.setEnabled(false);
+            w2.setEnabled(false);
+        }
+
+    }
 
 
 }
