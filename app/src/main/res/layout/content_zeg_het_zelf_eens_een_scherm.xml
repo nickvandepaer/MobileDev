@@ -26,144 +26,145 @@
             android:onClick="Luidspreker_onClick"
             />
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:layout_gravity="center">
-
         <LinearLayout
-            android:id="@+id/afbeeldingen"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
             android:layout_gravity="center"
-            android:orientation="horizontal"
-            android:layout_marginTop="5dp">
+            android:id="@+id/varkentjes" >
+            <LinearLayout
+                android:id="@+id/afbeeldingen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+                android:layout_marginTop="5dp">
 
-            <ImageView
-                android:id="@+id/afbeelding1"
-                android:layout_width="75dp"
-                android:layout_height="75dp"
-                android:layout_gravity="center"
-                android:layout_margin="10dp"
-                android:background="@drawable/border"
-                android:src="@drawable/varken"
-                android:onClick="Afbeelding_onClick"
-                />
+                <ImageView
+                    android:id="@+id/afbeelding1"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/border"
+                    android:src="@drawable/varken"
+                    android:onClick="Afbeelding_onClick"
+                    android:tag="afbeelding1"
+                    />
+                <ImageView
+                    android:id="@+id/afbeelding2"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/border"
+                    android:src="@drawable/varken"
+                    android:onClick="Afbeelding_onClick"
+                    android:tag="afbeelding2"
+                    />
+                <ImageView
+                    android:id="@+id/afbeelding3"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/border"
+                    android:src="@drawable/varken"
+                    android:onClick="Afbeelding_onClick"
+                    android:tag="afbeelding3"
+                    />
 
-            <ImageView
-                android:id="@+id/afbeelding2"
-                android:layout_width="75dp"
-                android:layout_height="75dp"
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/afbeeldingen2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_margin="10dp"
-                android:background="@drawable/border"
-                android:src="@drawable/varken"
-                android:onClick="Afbeelding_onClick"
-                />
-            <ImageView
-                android:id="@+id/afbeelding3"
-                android:layout_width="75dp"
-                android:layout_height="75dp"
-                android:layout_gravity="center"
-                android:layout_margin="10dp"
-                android:background="@drawable/border"
-                android:src="@drawable/varken"
-                android:onClick="Afbeelding_onClick"
-                />
+                android:orientation="horizontal"
+                android:layout_below="@id/afbeeldingen"
+                android:layout_marginTop="5dp">
+
+                <ImageView
+                    android:id="@+id/afbeelding4"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/border"
+                    android:src="@drawable/varken"
+                    android:onClick="Afbeelding_onClick"
+                    android:tag="afbeelding4"
+                    />
+                <ImageView
+                    android:id="@+id/afbeelding5"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/border"
+                    android:src="@drawable/varken"
+                    android:onClick="Afbeelding_onClick"
+                    android:tag="afbeelding5"
+                    />
+                <ImageView
+                    android:id="@+id/afbeelding6"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/border"
+                    android:src="@drawable/varken"
+                    android:onClick="Afbeelding_onClick"
+                    android:tag="afbeelding6"
+                    />
 
         </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/afbeeldingen2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:orientation="horizontal"
-            android:layout_below="@id/afbeeldingen"
-            android:layout_marginTop="5dp">
-
-            <ImageView
-                android:id="@+id/afbeelding4"
-                android:layout_width="75dp"
-                android:layout_height="75dp"
+            <LinearLayout
+                android:id="@+id/afbeeldingen3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_margin="10dp"
-                android:background="@drawable/border"
-                android:src="@drawable/varken"
-                android:onClick="Afbeelding_onClick"
-                />
+                android:orientation="horizontal"
+                android:layout_below="@id/afbeeldingen2"
+                android:layout_marginTop="5dp">
 
-            <ImageView
-                android:id="@+id/afbeelding5"
-                android:layout_width="75dp"
-                android:layout_height="75dp"
-                android:layout_gravity="center"
-                android:layout_margin="10dp"
-                android:background="@drawable/border"
-                android:src="@drawable/varken"
-                android:onClick="Afbeelding_onClick"
-                />
-            <ImageView
-                android:id="@+id/afbeelding6"
-                android:layout_width="75dp"
-                android:layout_height="75dp"
-                android:layout_gravity="center"
-                android:layout_margin="10dp"
-                android:background="@drawable/border"
-                android:src="@drawable/varken"
-                android:onClick="Afbeelding_onClick"
-                />
+                <ImageView
+                    android:id="@+id/afbeelding7"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/border"
+                    android:src="@drawable/varken"
+                    android:onClick="Afbeelding_onClick"
+                    android:tag="afbeelding7"
+                    />
+                <ImageView
+                    android:id="@+id/afbeelding8"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/border"
+                    android:src="@drawable/varken"
+                    android:onClick="Afbeelding_onClick"
+                    android:tag="afbeelding8"
+                    />
+                <ImageView
+                    android:id="@+id/afbeelding9"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/border"
+                    android:src="@drawable/varken"
+                    android:onClick="Afbeelding_onClick"
+                    android:tag="afbeelding9"
+                    />
 
         </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/afbeeldingen3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:orientation="horizontal"
-            android:layout_below="@id/afbeeldingen2"
-            android:layout_marginTop="5dp">
-
-            <ImageView
-                android:id="@+id/afbeelding7"
-                android:layout_width="75dp"
-                android:layout_height="75dp"
-                android:layout_gravity="center"
-                android:layout_margin="10dp"
-                android:background="@drawable/border"
-                android:src="@drawable/varken"
-                android:onClick="Afbeelding_onClick"
-                />
-
-            <ImageView
-                android:id="@+id/afbeelding8"
-                android:layout_width="75dp"
-                android:layout_height="75dp"
-                android:layout_gravity="center"
-                android:layout_margin="10dp"
-                android:background="@drawable/border"
-                android:src="@drawable/varken"
-                android:onClick="Afbeelding_onClick"
-                />
-            <ImageView
-                android:id="@+id/afbeelding9"
-                android:layout_width="75dp"
-                android:layout_height="75dp"
-                android:layout_gravity="center"
-                android:layout_margin="10dp"
-                android:background="@drawable/border"
-                android:src="@drawable/varken"
-                android:onClick="Afbeelding_onClick"
-                />
-
         </LinearLayout>
-
-</LinearLayout>
-
-
         <LinearLayout
             android:id="@+id/antwoorden"
             android:layout_width="wrap_content"
@@ -196,7 +197,6 @@
                 />
 
         </LinearLayout>
-
     </LinearLayout>
 
 

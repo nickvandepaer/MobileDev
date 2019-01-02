@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import java.util.Random;
@@ -26,7 +27,6 @@ public class ZegHetZelfEensEenScherm extends AppCompatActivity {
     MediaPlayer juist;
     MediaPlayer fout;
     int teller;
-    int tussenTeller = -1;
     int[] items = new int[1];
     ImageView imgView;
     int currentItem = 0;
@@ -95,20 +95,20 @@ public class ZegHetZelfEensEenScherm extends AppCompatActivity {
 
     public void Afbeelding_onClick(View v)
     {
-        if(tussenTeller != teller){
-            Random rand = new Random();
-            int random = rand.nextInt(2);
-            random = random+1;
-            if(random == 1){
-                juisteWoord = woord1;
-            }else {
-                juisteWoord = woord2;
-            }
-            int soundId = getResources().getIdentifier(juisteWoord, "raw", getPackageName());
-            afbeeldingGeluid = MediaPlayer.create(ZegHetZelfEensEenScherm.this,soundId);
+        Random rand = new Random();
+        int random = rand.nextInt(2);
+        random = random+1;
+        if(random == 1){
+            juisteWoord = woord1;
+        }else {
+            juisteWoord = woord2;
         }
+        int soundId = getResources().getIdentifier(juisteWoord, "raw", getPackageName());
+        afbeeldingGeluid = MediaPlayer.create(ZegHetZelfEensEenScherm.this,soundId);
 
-        EnableWoorden(true);
+
+        DisableWoorden(true);
+        DisableAfbeeldingen(false);
 
         int id = v.getId();
         imgView = (ImageView) findViewById(id);
@@ -120,7 +120,8 @@ public class ZegHetZelfEensEenScherm extends AppCompatActivity {
 
     private void ControleerAntwoord(ImageView afbeelding)
     {
-        EnableWoorden(false);
+        DisableWoorden(false);
+        DisableAfbeeldingen(true);
         if(juisteWoord.equals(afbeelding.getTag()))
         {
             teller++;
@@ -133,7 +134,6 @@ public class ZegHetZelfEensEenScherm extends AppCompatActivity {
             imgView.setImageResource(img);
             fout = MediaPlayer.create(ZegHetZelfEensEenScherm.this,R.raw.bijna_goed_nog_eens);
             fout.start();
-            tussenTeller = teller;
         }
         if(teller == 9)
         {
@@ -167,7 +167,7 @@ public class ZegHetZelfEensEenScherm extends AppCompatActivity {
         dialog.show();
     }
 
-    private void EnableWoorden(Boolean clickable){
+    private void DisableWoorden(Boolean clickable){
         ImageView w1 = (ImageView) findViewById(R.id.woord1);
         ImageView w2 = (ImageView) findViewById(R.id.woord2);
         if(clickable == true){
@@ -180,5 +180,17 @@ public class ZegHetZelfEensEenScherm extends AppCompatActivity {
 
     }
 
-
+    private void DisableAfbeeldingen(boolean clickable){
+        for(int i=1; i<=9; i++) {
+            String tagname = "afbeelding" + i;
+            int imageId = getResources().getIdentifier(tagname, "id", getPackageName());
+            ImageView imageView = (ImageView) findViewById(imageId);
+            if(clickable == true){
+                imageView.setEnabled(true);
+            }
+            else {
+                imageView.setEnabled(false);
+            }
+        }
+    }
 }
