@@ -171,7 +171,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:orientation="horizontal"
-            android:layout_below="@id/woord"
+            android:layout_below="@id/afbeeldingen"
             android:layout_marginTop="10dp">
 
             <ImageView
@@ -179,7 +179,7 @@
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_gravity="center"
-                android:layout_below="@id/woord"
+
                 android:layout_margin="20dp"
                 android:background="@drawable/border"
                 android:onClick="Woord1_onClick"
@@ -190,7 +190,7 @@
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_gravity="center"
-                android:layout_below="@id/woord"
+
                 android:layout_toRightOf="@id/woord1"
                 android:background="@drawable/border"
                 android:onClick="Woord2_onClick"

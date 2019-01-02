@@ -25,7 +25,6 @@
             android:layout_alignTop="@id/oorImg"
             android:onClick="Luidspreker_onClick"
             />
-
         <ImageView
             android:id="@+id/hond"
             android:layout_width="200dp"
@@ -52,7 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:orientation="horizontal"
-            android:layout_below="@id/woord"
+            android:layout_below="@id/bot"
             android:layout_marginTop="60dp">
 
             <ImageView
@@ -60,7 +59,7 @@
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_gravity="center"
-                android:layout_below="@id/woord"
+
                 android:layout_margin="20dp"
                 android:background="@drawable/border"
                 android:onClick="Woord1_onClick"
@@ -71,7 +70,7 @@
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_gravity="center"
-                android:layout_below="@id/woord"
+
                 android:layout_toRightOf="@id/woord1"
                 android:background="@drawable/border"
                 android:onClick="Woord2_onClick"
