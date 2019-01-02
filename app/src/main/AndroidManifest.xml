@@ -69,6 +69,7 @@
         <activity
             android:name=".ZegHetZelfEensEenScherm"
             android:label="@string/title_activity_zeg_het_zelf_eens_een_scherm"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
